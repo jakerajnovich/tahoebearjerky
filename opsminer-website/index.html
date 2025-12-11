@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpsMiner.ai - Operational Reality Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#14b8a6', // Teal
+                            foreground: '#0f172a',
+                        },
+                        background: '#0f172a', // Deep Navy
+                        foreground: '#f8fafc',
+                        muted: {
+                            DEFAULT: '#1e293b',
+                            foreground: '#94a3b8',
+                        },
+                        accent: '#f59e0b', // Amber
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #14b8a6, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .grid-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1v38h38V1H1z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-6">
+        <div class="container mx-auto px-6 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <img src="assets/opsminer_logo_full.png" alt="OpsMiner.ai" class="h-8 md:h-10">
+            </div>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#use-cases" class="text-sm font-medium hover:text-primary transition-colors">Use Cases</a>
+                <a href="#how-it-works" class="text-sm font-medium hover:text-primary transition-colors">How It Works</a>
+                <a href="#about" class="text-sm font-medium hover:text-primary transition-colors">About</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="#" class="hidden md:flex text-sm font-medium hover:text-primary transition-colors">Sign In</a>
+                <a href="#" class="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-md text-sm font-medium transition-colors">
+                    Become a Design Partner
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+            <!-- Background -->
+            <div class="absolute inset-0 z-0">
+                <img src="assets/images/hero-bg.png" alt="Digital Mine Background" class="w-full h-full object-cover opacity-40">
+                <div class="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background"></div>
+                <div class="absolute inset-0 grid-pattern"></div>
+            </div>
+
+            <div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono uppercase tracking-wider">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                        </span>
+                        Operational Reality Engine
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-7xl font-bold tracking-tight leading-tight">
+                        Mine Your Data, <br />
+                        <span class="text-gradient">Find Your O.R.E.</span>
+                    </h1>
+                    
+                    <p class="text-xl text-muted-foreground max-w-xl leading-relaxed">
+                        OpsMiner transforms the chaos of your unstructured data into a real-time operational map. Shift from reactive firefighting to proactive, autonomous IT.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="#how-it-works" class="inline-flex items-center justify-center h-14 px-8 rounded-lg bg-primary text-primary-foreground text-lg font-medium hover:bg-primary/90 shadow-[0_0_20px_rgba(20,184,166,0.3)] transition-all">
+                            See How It Works
+                        </a>
+                        <a href="#use-cases" class="inline-flex items-center justify-center h-14 px-8 rounded-lg border border-white/10 text-lg font-medium hover:bg-white/5 transition-all">
+                            View Use Cases
+                        </a>
+                    </div>
+                    
+                    <div class="pt-8 flex flex-wrap items-center gap-8 text-sm text-muted-foreground">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle-2" class="h-4 w-4 text-primary"></i>
+                            <span>No new agents</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle-2" class="h-4 w-4 text-primary"></i>
+                            <span>Connects in minutes</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle-2" class="h-4 w-4 text-primary"></i>
+                            <span>SOC2 Compliant</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative hidden lg:block">
+                    <div class="relative z-10 glass-card rounded-2xl p-2 shadow-2xl transform rotate-y-12 rotate-x-6 perspective-1000 transition-transform hover:scale-105 duration-500">
+                        <img src="assets/images/use-case-cloud.png" alt="OpsMiner Dashboard Interface" class="rounded-xl w-full h-auto shadow-inner border border-white/5">
+                        
+                        <!-- Floating Elements -->
+                        <div class="absolute -left-12 top-1/4 glass-card p-4 rounded-lg flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
+                            <div class="h-10 w-10 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                                <i data-lucide="zap" class="h-5 w-5"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-muted-foreground">Alert Detected</div>
+                                <div class="text-sm font-bold">Tagging Inconsistency</div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute -right-8 bottom-1/3 glass-card p-4 rounded-lg flex items-center gap-3 animate-bounce" style="animation-duration: 4s; animation-delay: 0.7s;">
+                            <div class="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                                <i data-lucide="shield-check" class="h-5 w-5"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-muted-foreground">Auto-Remediation</div>
+                                <div class="text-sm font-bold">Policy Applied</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Glow effects -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] -z-10"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Statement -->
+        <section class="py-24 bg-background relative">
+            <div class="container mx-auto px-6 text-center max-w-3xl space-y-6">
+                <h2 class="text-3xl md:text-4xl font-bold">Drowning in Data, Starving for Insights?</h2>
+                <p class="text-lg text-muted-foreground">
+                    IT teams waste <span class="text-white font-semibold">30-35%</span> of their time searching for information. 
+                    Your data is scattered across tickets, logs, chat, and cloud systems. 
+                    OpsMiner connects these silos to build a single source of operational truth.
+                </p>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section id="use-cases" class="py-24 relative overflow-hidden">
+            <div class="absolute inset-0 bg-muted/30 skew-y-3 transform origin-top-left scale-110"></div>
+            
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+                    <div class="text-primary font-mono text-sm uppercase tracking-wider">Real Solutions</div>
+                    <h2 class="text-4xl md:text-5xl font-bold">Operational Reality in Action</h2>
+                    <p class="text-muted-foreground text-lg">
+                        See how OpsMiner solves your most critical operations challenges by mining the data you already have.
+                    </p>
+                </div>
+
+                <div class="space-y-32">
+                    <!-- Use Case 1: ITSM -->
+                    <div class="grid lg:grid-cols-2 gap-16 items-center group">
+                        <div class="order-2 lg:order-1 relative">
+                            <div class="absolute inset-0 bg-primary/10 rounded-3xl blur-3xl transform group-hover:scale-105 transition-transform duration-700"></div>
+                            <img src="assets/images/use-case-itsm.png" alt="ITSM Ticket Mining" class="relative z-10 rounded-2xl border border-white/10 shadow-2xl w-full transform transition-transform duration-500 group-hover:-translate-y-2">
+                        </div>
+                        <div class="order-1 lg:order-2 space-y-6">
+                            <div class="h-12 w-12 rounded-xl bg-primary/20 flex items-center justify-center text-primary mb-4">
+                                <i data-lucide="layers" class="h-6 w-6"></i>
+                            </div>
+                            <h3 class="text-3xl font-bold">Turn Ticket Chaos into <br/>Operational Playbooks</h3>
+                            <p class="text-muted-foreground text-lg">
+                                Your team drowns in repetitive ITSM tickets. OpsMiner mines historical and live tickets to identify recurring issues, detect patterns, and automatically generate actionable playbooks.
+                            </p>
+                            <ul class="space-y-3 pt-4">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="h-5 w-5 text-primary shrink-0 mt-0.5"></i>
+                                    <span class="text-sm md:text-base">Analyze historical tickets to find root causes</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="h-5 w-5 text-primary shrink-0 mt-0.5"></i>
+                                    <span class="text-sm md:text-base">Identify recurring issues before they escalate</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="h-5 w-5 text-primary shrink-0 mt-0.5"></i>
+                                    <span class="text-sm md:text-base">Create auto-remediation playbooks</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="h-5 w-5 text-primary shrink-0 mt-0.5"></i>
+                                    <span class="text-sm md:text-base">Surface insights directly in Slack or Teams</span>
+                                </li>
+                            </ul>
+                            <div class="pt-4">
+                                <a href="#" class="inline-flex items-center text-primary font-semibold hover:translate-x-1 transition-transform">
+                                    Learn more about ITSM Mining <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Use Case 2: Cloud -->
+                    <div class="grid lg:grid-cols-2 gap-16 items-center group">
+                        <div class="space-y-6">
+                            <div class="h-12 w-12 rounded-xl bg-accent/20 flex items-center justify-center text-accent mb-4">
+                                <i data-lucide="search" class="h-6 w-6"></i>
+                            </div>
+                            <h3 class="text-3xl font-bold">Discover and Fix <br/>Cloud Tagging Issues</h3>
+                            <p class="text-muted-foreground text-lg">
+                                Cloud sprawl leads to governance nightmares. OpsMiner continuously mines your infrastructure to identify tagging inconsistencies, orphaned resources, and policy violations.
+                            </p>
+                            <ul class="space-y-3 pt-4">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="h-5 w-5 text-accent shrink-0 mt-0.5"></i>
+                                    <span class="text-sm md:text-base">Mine AWS, Azure, and GCP simultaneously</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="h-5 w-5 text-accent shrink-0 mt-0.5"></i>
+                                    <span class="text-sm md:text-base">Identify untagged or mis-tagged resources</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="h-5 w-5 text-accent shrink-0 mt-0.5"></i>
+                                    <span class="text-sm md:text-base">Surface issues in chat with context</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="h-5 w-5 text-accent shrink-0 mt-0.5"></i>
+                                    <span class="text-sm md:text-base">Reduce cloud waste and ensure compliance</span>
+                                </li>
+                            </ul>
+                            <div class="pt-4">
+                                <a href="#" class="inline-flex items-center text-accent font-semibold hover:translate-x-1 transition-transform">
+                                    Explore Cloud Governance <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-accent/10 rounded-3xl blur-3xl transform group-hover:scale-105 transition-transform duration-700"></div>
+                            <img src="assets/images/use-case-cloud.png" alt="Cloud Infrastructure Mining" class="relative z-10 rounded-2xl border border-white/10 shadow-2xl w-full transform transition-transform duration-500 group-hover:-translate-y-2">
+                        </div>
+                    </div>
+
+                    <!-- Use Case 3: Supply Chain -->
+                    <div class="grid lg:grid-cols-2 gap-16 items-center group">
+                        <div class="order-2 lg:order-1 relative">
+                            <div class="absolute inset-0 bg-cyan-500/10 rounded-3xl blur-3xl transform group-hover:scale-105 transition-transform duration-700"></div>
+                            <img src="assets/images/use-case-supply-chain.png" alt="Software Supply Chain Mining" class="relative z-10 rounded-2xl border border-white/10 shadow-2xl w-full transform transition-transform duration-500 group-hover:-translate-y-2">
+                        </div>
+                        <div class="order-1 lg:order-2 space-y-6">
+                            <div class="h-12 w-12 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-500 mb-4">
+                                <i data-lucide="shield-check" class="h-6 w-6"></i>
+                            </div>
+                            <h3 class="text-3xl font-bold">Govern Your Software <br/>Supply Chain</h3>
+                            <p class="text-muted-foreground text-lg">
+                                Modern apps depend on hundreds of third-party components. OpsMiner mines your software supply chain to provide continuous compliance monitoring and vulnerability detection.
+                            </p>
+                            <ul class="space-y-3 pt-4">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="h-5 w-5 text-cyan-500 shrink-0 mt-0.5"></i>
+                                    <span class="text-sm md:text-base">Continuous supply chain visibility</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="h-5 w-5 text-cyan-500 shrink-0 mt-0.5"></i>
+                                    <span class="text-sm md:text-base">Automated compliance reporting</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="h-5 w-5 text-cyan-500 shrink-0 mt-0.5"></i>
+                                    <span class="text-sm md:text-base">Early vulnerability detection</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="h-5 w-5 text-cyan-500 shrink-0 mt-0.5"></i>
+                                    <span class="text-sm md:text-base">Audit-ready documentation</span>
+                                </li>
+                            </ul>
+                            <div class="pt-4">
+                                <a href="#" class="inline-flex items-center text-cyan-500 font-semibold hover:translate-x-1 transition-transform">
+                                    View Security Features <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section id="how-it-works" class="py-24 bg-muted/20">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <h2 class="text-3xl md:text-4xl font-bold">From Data to Action</h2>
+                    <p class="text-muted-foreground">
+                        OpsMiner connects to your existing tools without requiring new agents or complex setups.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-8">
+                    <!-- Step 1 -->
+                    <div class="glass-card p-6 rounded-xl border border-white/5 hover:border-primary/50 transition-colors duration-300">
+                        <div class="text-4xl mb-4">🔌</div>
+                        <h3 class="text-xl font-bold mb-2">Connect</h3>
+                        <p class="text-muted-foreground">Plug into your existing data streams—tickets, logs, chat, and cloud.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="glass-card p-6 rounded-xl border border-white/5 hover:border-primary/50 transition-colors duration-300">
+                        <div class="text-4xl mb-4">⛏️</div>
+                        <h3 class="text-xl font-bold mb-2">Mine</h3>
+                        <p class="text-muted-foreground">AI agents extract patterns and build operational models.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="glass-card p-6 rounded-xl border border-white/5 hover:border-primary/50 transition-colors duration-300">
+                        <div class="text-4xl mb-4">💡</div>
+                        <h3 class="text-xl font-bold mb-2">Surface</h3>
+                        <p class="text-muted-foreground">Insights appear where you work—chat, dashboards, or alerts.</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="glass-card p-6 rounded-xl border border-white/5 hover:border-primary/50 transition-colors duration-300">
+                        <div class="text-4xl mb-4">🔄</div>
+                        <h3 class="text-xl font-bold mb-2">Evolve</h3>
+                        <p class="text-muted-foreground">Your Operational Reality Engine learns and improves continuously.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-24 relative overflow-hidden">
+            <div class="absolute inset-0 bg-primary/10"></div>
+            <div class="absolute inset-0 grid-pattern opacity-5"></div>
+            
+            <div class="container mx-auto px-6 relative z-10 text-center space-y-8">
+                <h2 class="text-4xl md:text-5xl font-bold">Ready to Build Your <br/>Operational Reality?</h2>
+                <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+                    Join forward-thinking IT teams who are shifting from reactive firefighting to proactive optimization.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                    <a href="#" class="inline-flex items-center justify-center h-14 px-10 rounded-lg bg-primary text-primary-foreground text-lg font-medium hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all">
+                        Become a Design Partner
+                    </a>
+                    <a href="#" class="inline-flex items-center justify-center h-14 px-10 rounded-lg border border-white/10 text-lg font-medium hover:bg-white/5 transition-all">
+                        Schedule a Demo
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-background border-t border-white/10 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2 space-y-4">
+                    <img src="assets/opsminer_logo_full.png" alt="OpsMiner.ai" class="h-8">
+                    <p class="text-muted-foreground max-w-xs">
+                        Mine truth from chaos. Build your Operational Reality Engine.
+                    </p>
+                    <div class="flex gap-4 pt-2">
+                        <a href="#" class="h-8 w-8 rounded-full bg-white/5 hover:bg-primary/20 flex items-center justify-center transition-colors">
+                            <span class="sr-only">Twitter</span>
+                            <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                        </a>
+                        <a href="#" class="h-8 w-8 rounded-full bg-white/5 hover:bg-primary/20 flex items-center justify-center transition-colors">
+                            <span class="sr-only">LinkedIn</span>
+                            <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.784 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <h4 class="font-bold">Product</h4>
+                    <ul class="space-y-2 text-sm text-muted-foreground">
+                        <li><a href="#" class="hover:text-primary transition-colors">Features</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Use Cases</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Integrations</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="space-y-4">
+                    <h4 class="font-bold">Company</h4>
+                    <ul class="space-y-2 text-sm text-muted-foreground">
+                        <li><a href="#" class="hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
+                <p>&copy; 2025 OpsMiner.ai. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-foreground transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-foreground transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-foreground transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-background/80', 'backdrop-blur-md', 'border-b', 'border-white/10', 'py-4');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('bg-background/80', 'backdrop-blur-md', 'border-b', 'border-white/10', 'py-4');
+                navbar.classList.add('py-6');
+            }
+        });
+    </script>
+</body>
+</html>
